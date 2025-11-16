@@ -14,21 +14,21 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        // --- Création des repositories ---
+        
         CategorieRepository categorieRepo = new CategorieRepository();
         ProduitRepository produitRepo = new ProduitRepository();
         CommandeRepository commandeRepo = new CommandeRepository();
 
-        // --- Création des services ---
+        
         CategorieService categorieService = new CategorieService(categorieRepo);
         ProduitService produitService = new ProduitService(produitRepo, categorieService);
         CommandeService commandeService = new CommandeService(commandeRepo);
 
-        // --- Création des menus ---
+        
         MenuStockView menuStock = new MenuStockView(categorieService, produitService);
         MenuCommandeView menuCommande = new MenuCommandeView(commandeService, produitService);
 
-        // --- Menu principal ---
+        
         Scanner sc = new Scanner(System.in);
         int choix;
         do {
